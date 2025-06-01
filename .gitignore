@@ -15,7 +15,7 @@ build/
 *.tsbuildinfo
 
 # Bun
-bun.lock
+#bun.lock
 
 # Logs
 logs/
