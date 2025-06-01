@@ -1,0 +1,49 @@
+{
+  "name": "hono-docker",
+  "version": "1.0.0",
+  "description": "A production-ready Hono.js application with Docker support",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --env-file=.env.dev run --hot src/index.ts",
+    "prod": "bun --env-file=.env.prod run src/index.ts",
+    "build": "bun build src/index.ts --minify --outdir=./dist --target=bun",
+    "build:bin": "bun build --env-file=.env.bin.prod --compile --minify src/index.ts --outfile server",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "test:coverage": "bun test --coverage",
+    "format": "biome format . --write",
+    "format:check": "biome format .",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --apply",
+    "check": "biome check .",
+    "check:fix": "biome check . --apply",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "hono": "^4.7.11",
+    "@hono/zod-validator": "^0.1.11",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3",
+    "@types/bun": "latest",
+    "happy-dom": "^13.3.8",
+    "husky": "^8.0.3",
+    "typescript": "^5.3.3"
+  },
+  "lint-staged": {
+    "*": ["biome check --apply", "biome format --write"]
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "keywords": [
+    "hono",
+    "bun",
+    "docker",
+    "typescript",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT"
+}

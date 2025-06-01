@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run biome checks
+bun run check
+bun run format:check
+
+# Run tests
+bun run test
